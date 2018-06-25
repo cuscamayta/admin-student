@@ -54,6 +54,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Truextend.AdmStudent.DAO.FileSystem\Truextend.AdmStudent.DAO.FileSystem.csproj">
+      <Project>{8019e447-037b-49c7-a4bb-05745a79804d}</Project>
+      <Name>Truextend.AdmStudent.DAO.FileSystem</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Truextend.AdmStudent.DAO\Truextend.AdmStudent.DAO.csproj">
       <Project>{e1f7d7cf-183a-433a-8b5d-ad172ae6e8ed}</Project>
       <Name>Truextend.AdmStudent.DAO</Name>

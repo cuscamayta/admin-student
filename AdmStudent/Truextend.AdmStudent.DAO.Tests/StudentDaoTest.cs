@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Truextend.AdmStudent.Domain;
 using Truextend.AdmStudent.Domain.Enums;
+using Truextend.AdmStudent.DAO.FileSystem;
 
 namespace Truextend.AdmStudent.DAO.Tests
 {
@@ -9,11 +10,11 @@ namespace Truextend.AdmStudent.DAO.Tests
     public class StudentDaoTest
     {
 
-        private readonly IStudentDao _studentDao;
+        private  IStudentDao _studentDao;
         [TestInitialize]
         public void Initialize()
         {
-            //_studentDao = new StudentDao();
+            _studentDao = new StudentDao();
         }
 
         [TestMethod]

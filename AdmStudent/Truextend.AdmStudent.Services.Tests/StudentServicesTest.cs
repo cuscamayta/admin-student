@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Truextend.AdmStudent.Domain;
 using Truextend.AdmStudent.Domain.Enums;
+using Truextend.AdmStudent.Services.Impl;
 
 namespace Truextend.AdmStudent.Services.Tests
 {
@@ -9,17 +10,18 @@ namespace Truextend.AdmStudent.Services.Tests
     public class StudentServicesTest
     {
 
-        private readonly IStudentService _studentService;
+        private IStudentService _studentService;
         [TestInitialize]
         public void Initialize()
         {
+            _studentService = new StudentService();
         }
 
         [TestMethod]
         public void ShouldBeStoreStudentAfterInsert()
         {
             var studentCountInit = _studentService.GetTotalStudents();
-            var newStudent =  new Student() { Type = TypeStudent.Elementary, Name = "Pepe", Gender = Gender.Female, LastUpdate = new TimeSpan() };
+            var newStudent = new Student() { Type = TypeStudent.Elementary, Name = "Pepe", Gender = Gender.Female, LastUpdate = new TimeSpan() };
             var isSuccess = _studentService.InsertNewStudent(newStudent);
             var studentsCountAfterInsert = _studentService.GetTotalStudents();
 

@@ -58,6 +58,10 @@
       <Project>{45ff4bbe-4515-4c56-b337-9b8d06aa9814}</Project>
       <Name>Truextend.AdmStudent.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Truextend.AdmStudent.Services.Impl\Truextend.AdmStudent.Services.Impl.csproj">
+      <Project>{e0075918-ce79-458f-a04b-331bef5fac51}</Project>
+      <Name>Truextend.AdmStudent.Services.Impl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Truextend.AdmStudent.Services\Truextend.AdmStudent.Services.csproj">
       <Project>{e617bd18-98b5-4ed1-bfb0-d1e9037d5171}</Project>
       <Name>Truextend.AdmStudent.Services</Name>
