@@ -10,11 +10,11 @@ namespace Truextend.AdmStudent.DAO
     {
         int Insert(T entity);
 
-        int Delete(T entity);
+        bool Delete(T entity);
 
         int Update(T entity);
 
-        int Delete(Guid id);
+        bool Delete(Guid id);
 
         IEnumerable<T> GetAll();
 

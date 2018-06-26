@@ -39,42 +39,56 @@ namespace Truextend.AdmStudent.Commons
             return fileText;
         }
 
-        public string ReadAllLinesByWord(string word)
+
+        public IEnumerable<string> FindByWord(string word)
         {
-            return string.Empty;
-            //while (!string.IsNullOrEmpty(StringTemp))
-            //{
-            //    StringTemp = StringReader.ReadLine();
-            //    if (StringTemp == null && StringTemp == "")
-            //    {
-            //        StringReader.Close();
-            //        return ErrorWord;
-            //    }
-            //    else if (StringTemp != null)
-            //    {
-            //        if (StringTemp.Contains(word) == true)
-            //        {
-            //            if (StringTemp != "")
-            //            {
-            //                StringText += ";";
-            //                StringText += StringTemp;
-            //            }
-            //            else
-            //            {
-            //                StringText += StringTemp;
-            //            }
-            //        }
-            //    }
-            //}
-            //StringReader.Close();
-            //return StringText;
+            var lines = ReadAllLines().Where(x => x.Contains(word));
+            return lines;
         }
 
-        public string RemoveLine(int numberLine)
+        public void RemoveLine(int numberLine)
         {
-            var lines = File.ReadAllLines(_pathFile);
-            string line = lines[numberLine].Remove(numberLine);
-            return line;
+            string line = null;
+            int line_number = 0;
+            int line_to_delete = 12;
+
+            using (StreamReader reader = new StreamReader("C:\\input"))
+            {
+                using (StreamWriter writer = new StreamWriter("C:\\output"))
+                {
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        line_number++;
+
+                        if (line_number == line_to_delete)
+                            continue;
+
+                        writer.WriteLine(line);
+                    }
+                }
+            }
+        }
+
+        public string FindAndRemoveLine(string word)
+        {
+            //string line = string.Empty;
+            var lineToRemove = string.Empty;
+            var lines = ReadAllLines();
+
+            using (StreamWriter writer = new StreamWriter(_pathFile))
+            {
+                foreach (var line in lines)
+                {
+                    if (line.Contains(word))
+                    {
+                        lineToRemove = line;
+                        continue;
+                    }
+                    writer.WriteLine(line);
+                }
+            }
+
+            return lineToRemove;
         }
 
         public string ReadFirstLine()

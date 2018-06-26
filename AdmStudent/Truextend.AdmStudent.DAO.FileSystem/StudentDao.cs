@@ -7,6 +7,8 @@ using Truextend.AdmStudent.DAO.FileSystem.Helpers;
 using Truextend.AdmStudent.Domain;
 using System.IO;
 using Truextend.AdmStudent.Commons.Helpers;
+using Truextend.AdmStudent.Commons;
+using Truextend.AdmStudent.Domain.Enums;
 
 namespace Truextend.AdmStudent.DAO.FileSystem
 {
@@ -27,7 +29,7 @@ namespace Truextend.AdmStudent.DAO.FileSystem
             });
         }
 
-        public int Delete(Student entity)
+        public bool Delete(Student entity)
         {
             throw new NotImplementedException();
         }
@@ -55,13 +57,40 @@ namespace Truextend.AdmStudent.DAO.FileSystem
             });
         }
 
-
-
-       
-
-        public int Delete(Guid id)
+        public bool Delete(Guid id)
         {
-            throw new NotImplementedException();
+            return this.HandlerErrorAndExecute<bool>(() =>
+            {
+                var studentDeleted = CsvHelper.FindAndRemoveLine(id.ToString()).BuildStudent();
+                return true;
+            });
+        }
+
+        public IEnumerable<Student> FindStudentsByName(string name)
+        {
+            return HandlerErrorAndExecute<IEnumerable<Student>>(() =>
+            {
+                var students = CsvHelper.ReadAllLines().ToList().Where(x => x.Name.ToUpper().Equals(name.ToUpper())).ToList();
+                return students;
+            });
+        }
+
+        public IEnumerable<Student> FindStudentsByType(TypeStudent type)
+        {
+            return HandlerErrorAndExecute<IEnumerable<Student>>(() =>
+            {
+                var students = CsvHelper.ReadAllLines().ToList().Where(x => x.Type == type);
+                return students;
+            });
+        }
+
+        public IEnumerable<Student> FindStudentsByGenderAndType(TypeStudent type, Gender gender)
+        {
+            return HandlerErrorAndExecute<IEnumerable<Student>>(() =>
+            {
+                var students = CsvHelper.ReadAllLines().ToList().Where(x => x.Type == type && x.Gender == gender);
+                return students;
+            });
         }
     }
 }

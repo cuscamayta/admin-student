@@ -10,7 +10,11 @@ namespace Truextend.AdmStudent.DAO
 {
     public interface IStudentDao : IRepository<Student>
     {
+        IEnumerable<Student> FindStudentsByName(string name);
 
-      
+        IEnumerable<Student> FindStudentsByType(TypeStudent type);
+
+        IEnumerable<Student> FindStudentsByGenderAndType(TypeStudent type, Gender gender);
+
     }
 }
