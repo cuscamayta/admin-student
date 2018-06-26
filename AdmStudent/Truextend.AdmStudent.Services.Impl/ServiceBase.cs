@@ -8,6 +8,10 @@ namespace Truextend.AdmStudent.Services.Impl
 {
     using System;
     using Truextend.AdmStudent.Commons;
+
+    /// <summary>
+    /// Containst features bases for services
+    /// </summary>    
     public class ServiceBase
     {
         public T HandlerErrorAndExecute<T>(Func<T> funct)

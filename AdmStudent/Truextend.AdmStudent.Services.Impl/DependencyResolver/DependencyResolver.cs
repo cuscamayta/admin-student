@@ -8,7 +8,7 @@ namespace Truextend.AdmStudent.Services.Impl.DependencyResolver
     {
         public override void Load()
         {
-            Kernel.Bind<IStudentDao>().To<StudentDao>();
+            Kernel.Bind<IStudentDao>().To<StudentDao>();//.WithConstructorArgument("pathCsvFile", "pathcustomtest");
         }
     }
 }

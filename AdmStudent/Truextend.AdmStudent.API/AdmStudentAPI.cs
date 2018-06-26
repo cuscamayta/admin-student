@@ -6,7 +6,7 @@
 
 namespace Truextend.AdmStudent.API
 {
-	using Nancy.Hosting.Self;
+    using Nancy.Hosting.Self;
     using System;
     public class AdmStudentAPI
     {
@@ -24,7 +24,7 @@ namespace Truextend.AdmStudent.API
             {
                 HostConfiguration hostConfigs = new HostConfiguration();
                 hostConfigs.UrlReservations.CreateAutomatically = true;
-                using (var host = new NancyHost(new Uri(url)))
+                using (var host = new NancyHost(new Uri(url), new APIBootstrapper()))
                 {
                     host.Start();
                     Console.Write(string.Format("Running on {0}\n", url));

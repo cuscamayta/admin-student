@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Truextend.AdmStudent.DAO.Tests", "Truextend.AdmStudent.DAO.Tests\Truextend.AdmStudent.DAO.Tests.csproj", "{1D98EC20-5417-47C0-BA1E-BBB6E897818F}"
 EndProject
@@ -30,6 +30,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Truextend.AdmStudent.API.Server", "Truextend.AdmStudent.API.Server\Truextend.AdmStudent.API.Server.csproj", "{3E5FA82F-E15C-49A7-ACE0-4BB0655B1911}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Truextend.AdmStudent.API", "Truextend.AdmStudent.API\Truextend.AdmStudent.API.csproj", "{AF385840-C9BE-45F5-BD3C-01E6A345681E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{8EDCD5C2-8712-4EB3-8D8D-B4AC12026BB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Truextend.AdmStudent.UI.Web", "Truextend.AdmStudent.UI.Web\Truextend.AdmStudent.UI.Web.csproj", "{5D5C7AF1-3A8B-4414-A45A-BD183AC6E594}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Truextend.AdmStudent.UI.Console", "Truextend.AdmStudent.UI.Console\Truextend.AdmStudent.UI.Console.csproj", "{D37246C8-8905-44FE-BB63-41071474C904}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +83,14 @@ Global
 		{AF385840-C9BE-45F5-BD3C-01E6A345681E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF385840-C9BE-45F5-BD3C-01E6A345681E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF385840-C9BE-45F5-BD3C-01E6A345681E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D5C7AF1-3A8B-4414-A45A-BD183AC6E594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D5C7AF1-3A8B-4414-A45A-BD183AC6E594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D5C7AF1-3A8B-4414-A45A-BD183AC6E594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D5C7AF1-3A8B-4414-A45A-BD183AC6E594}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D37246C8-8905-44FE-BB63-41071474C904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D37246C8-8905-44FE-BB63-41071474C904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D37246C8-8905-44FE-BB63-41071474C904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D37246C8-8905-44FE-BB63-41071474C904}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,5 +104,7 @@ Global
 		{45FF4BBE-4515-4C56-B337-9B8D06AA9814} = {97AA482E-F979-4A8B-9088-9510D8A2AA27}
 		{E617BD18-98B5-4ED1-BFB0-D1E9037D5171} = {8210D8C4-D9C7-41CA-B8BF-39C0604054C6}
 		{E0075918-CE79-458F-A04B-331BEF5FAC51} = {8210D8C4-D9C7-41CA-B8BF-39C0604054C6}
+		{AF385840-C9BE-45F5-BD3C-01E6A345681E} = {8EDCD5C2-8712-4EB3-8D8D-B4AC12026BB5}
+		{3E5FA82F-E15C-49A7-ACE0-4BB0655B1911} = {8EDCD5C2-8712-4EB3-8D8D-B4AC12026BB5}
 	EndGlobalSection
 EndGlobal

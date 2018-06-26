@@ -6,12 +6,17 @@
 
 namespace Truextend.AdmStudent.Domain
 {
-	using System;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+    using System;
     using Truextend.AdmStudent.Domain.Enums;
-	
+
+    /// <summary>
+    /// The domain definition for student
+    /// </summary>
     public class Student
     {
-        
+
         public Student(string name, TypeStudent type, Gender gender, string lastUpdate)
         {
             this.Name = name;
@@ -28,8 +33,11 @@ namespace Truextend.AdmStudent.Domain
             Gender = Gender.Female;
         }
         public Guid Id { get; set; }
+
+        [JsonConverter(typeof(StringEnumConverter))]
         public TypeStudent Type { get; set; }
         public string Name { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public Gender Gender { get; set; }
         public string LastUpdate { get; set; }
 

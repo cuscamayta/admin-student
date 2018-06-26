@@ -21,7 +21,7 @@ namespace Truextend.AdmStudent.DAO.FileSystem
         /// Initialize a new instance of <see cref="StudentDao"/>  class.
         /// </summary>
         /// <param name="pathCsvFile"></param>
-        public StudentDao(string pathCsvFile)
+        public StudentDao(string pathCsvFile = "")
             : base(pathCsvFile)
         {
         }

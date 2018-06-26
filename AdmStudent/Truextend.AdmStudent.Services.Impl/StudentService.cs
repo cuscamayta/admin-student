@@ -13,15 +13,24 @@ namespace Truextend.AdmStudent.Services.Impl
     using Truextend.AdmStudent.Domain;
     using Truextend.AdmStudent.Domain.Enums;
 
+    /// <summary>
+    /// The implementation for services Student.
+    /// </summary>
     public class StudentService : ServiceBase, IStudentService
     {
         private IStudentDao _studentDao;
+
 
         public StudentService(IStudentDao studentDao)
         {
             this._studentDao = studentDao;
         }
 
+        /// <summary>
+        /// Find all the students according the specific nem
+        /// </summary>
+        /// <param name="name">The specific name for search</param>
+        /// <returns>A list of student object based on the name criteria</returns>
         public bool InsertNewStudent(Student student)
         {
             return this.HandlerErrorAndExecute<bool>(() =>
@@ -31,6 +40,11 @@ namespace Truextend.AdmStudent.Services.Impl
             });
         }
 
+        /// <summary>
+        /// Find all the students according the specific nem
+        /// </summary>
+        /// <param name="name">The specific name for search</param>
+        /// <returns>A list of student object based on the name criteria</returns>
         public int GetTotalStudents()
         {
             return this.HandlerErrorAndExecute<int>(() =>
@@ -39,6 +53,11 @@ namespace Truextend.AdmStudent.Services.Impl
             });
         }
 
+        /// <summary>
+        /// Create a new student
+        /// </summary>
+        /// <param name="student">the current student for insert</param>
+        /// <returns>a boolean thah indicate if the operation was success. </returns>
         public bool CreateNewStudent(Student student)
         {
             return this.HandlerErrorAndExecute<bool>(() =>
@@ -48,6 +67,11 @@ namespace Truextend.AdmStudent.Services.Impl
             });
         }
 
+        /// <summary>
+        /// Delete a specific student
+        /// </summary>
+        /// <param name="id">the id for the student to delete.</param>
+        /// <returns>a boolean that indicate if the operation was success.</returns>
         public bool DeleteStudent(Guid id)
         {
             return this.HandlerErrorAndExecute<bool>(() =>
@@ -57,6 +81,10 @@ namespace Truextend.AdmStudent.Services.Impl
             });
         }
 
+        /// <summary>
+        /// Get all the student in the repository
+        /// </summary>        
+        /// <returns>A list of student object </returns>
         public IEnumerable<Student> GetAllStudents()
         {
             return this.HandlerErrorAndExecute<IEnumerable<Student>>(() =>
@@ -65,6 +93,11 @@ namespace Truextend.AdmStudent.Services.Impl
             });
         }
 
+        /// <summary>
+        /// Find all the students according the specific nem
+        /// </summary>
+        /// <param name="name">The specific name for search</param>
+        /// <returns>A list of student object based on the name criteria</returns>
         public IEnumerable<Student> FindStudentByName(string name)
         {
             return this.HandlerErrorAndExecute<IEnumerable<Student>>(() =>
@@ -73,6 +106,11 @@ namespace Truextend.AdmStudent.Services.Impl
             });
         }
 
+        /// <summary>
+        /// Find all the students according the specific nem
+        /// </summary>
+        /// <param name="name">The specific name for search</param>
+        /// <returns>A list of student object based on the name criteria</returns>
         public IEnumerable<Student> FindStudentByType(TypeStudent type)
         {
             return this.HandlerErrorAndExecute<IEnumerable<Student>>(() =>
@@ -81,6 +119,11 @@ namespace Truextend.AdmStudent.Services.Impl
             });
         }
 
+        /// <summary>
+        /// Find all the students according the specific nem
+        /// </summary>
+        /// <param name="name">The specific name for search</param>
+        /// <returns>A list of student object based on the name criteria</returns>
         public IEnumerable<Student> FindStudentByTypeAndGender(Domain.Enums.TypeStudent type, Domain.Enums.Gender gender)
         {
             return this.HandlerErrorAndExecute<IEnumerable<Student>>(() =>
@@ -89,7 +132,11 @@ namespace Truextend.AdmStudent.Services.Impl
             });
         }
 
-
+        /// <summary>
+        /// Find all the students according the specific nem
+        /// </summary>
+        /// <param name="name">The specific name for search</param>
+        /// <returns>A list of student object based on the name criteria</returns>
         public IEnumerable<Student> FindStudentById(Guid id)
         {
             return this.HandlerErrorAndExecute<IEnumerable<Student>>(() =>

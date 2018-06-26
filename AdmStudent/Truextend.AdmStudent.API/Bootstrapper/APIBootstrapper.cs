@@ -14,6 +14,8 @@ namespace Truextend.AdmStudent.API
     {
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
+            base.ApplicationStartup(container, pipelines);
+            Nancy.Json.JsonSettings.PrimitiveConverters.Add(new JsonConvertEnum());
             Nancy.Json.JsonSettings.MaxJsonLength = int.MaxValue;
         }
 
@@ -23,5 +25,6 @@ namespace Truextend.AdmStudent.API
 
             container.Register<StudentSetupModule>().AsSingleton();
         }
+
     }
 }
