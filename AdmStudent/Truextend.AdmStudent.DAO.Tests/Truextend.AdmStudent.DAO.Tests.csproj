@@ -54,6 +54,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Truextend.AdmStudent.Commons\Truextend.AdmStudent.Commons.csproj">
+      <Project>{9cd44461-0aea-4fec-b21c-280709983daa}</Project>
+      <Name>Truextend.AdmStudent.Commons</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Truextend.AdmStudent.DAO.FileSystem\Truextend.AdmStudent.DAO.FileSystem.csproj">
       <Project>{8019e447-037b-49c7-a4bb-05745a79804d}</Project>
       <Name>Truextend.AdmStudent.DAO.FileSystem</Name>
@@ -66,6 +70,9 @@
       <Project>{45ff4bbe-4515-4c56-b337-9b8d06aa9814}</Project>
       <Name>Truextend.AdmStudent.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FakeData\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

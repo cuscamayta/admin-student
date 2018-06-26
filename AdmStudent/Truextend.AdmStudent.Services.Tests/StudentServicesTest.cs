@@ -21,7 +21,7 @@ namespace Truextend.AdmStudent.Services.Tests
         public void ShouldBeStoreStudentAfterInsert()
         {
             var studentCountInit = _studentService.GetTotalStudents();
-            var newStudent = new Student() { Type = TypeStudent.Elementary, Name = "Pepe", Gender = Gender.Female, LastUpdate = new TimeSpan() };
+            var newStudent = new Student() { Type = TypeStudent.Elementary, Name = "Pepe", Gender = Gender.Female, LastUpdate = "123548" };
             var isSuccess = _studentService.InsertNewStudent(newStudent);
             var studentsCountAfterInsert = _studentService.GetTotalStudents();
 

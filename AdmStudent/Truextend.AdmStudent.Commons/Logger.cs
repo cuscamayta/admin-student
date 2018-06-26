@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Truextend.AdmStudent.Commons
 {
-    public class Logger : ILogger
+    public class Logger
     {
-        public void Error(Exception exception)
+        public static void Error(Exception exception)
         {
             throw new NotImplementedException();
         }
 
-        public void Error(Exception exception, string message)
+        public static void Error(Exception exception, string message)
         {
             throw new NotImplementedException();
         }

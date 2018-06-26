@@ -14,10 +14,10 @@ namespace Truextend.AdmStudent.DAO
 
         int Update(T entity);
 
-        int Delete(int id);
+        int Delete(Guid id);
 
         IEnumerable<T> GetAll();
 
-        IEnumerable<T> FindById(int id);
+        IEnumerable<T> FindById(Guid id);
     }
 }

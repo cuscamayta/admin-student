@@ -13,7 +13,7 @@ namespace Truextend.AdmStudent.Services.Impl
     public class StudentService : IStudentService
     {
         private IStudentDao _studentDao;
-        private ILogger _logger;
+
         public StudentService(IStudentDao studentDao)
         {
             this._studentDao = studentDao;
@@ -21,7 +21,7 @@ namespace Truextend.AdmStudent.Services.Impl
 
         public StudentService()
         {
-            this._studentDao = new StudentDao();
+            this._studentDao = new StudentDao(string.Empty);
         }
         public bool InsertNewStudent(Student student)
         {
@@ -32,7 +32,7 @@ namespace Truextend.AdmStudent.Services.Impl
             }
             catch (Exception exception)
             {
-                _logger.Error(exception);
+                Logger.Error(exception);
                 throw;
             }
         }
@@ -47,7 +47,7 @@ namespace Truextend.AdmStudent.Services.Impl
             }
             catch (Exception exception)
             {
-                _logger.Error(exception);
+                Logger.Error(exception);
                 throw;
             }
         }
