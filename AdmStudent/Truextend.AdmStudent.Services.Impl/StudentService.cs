@@ -20,10 +20,11 @@ namespace Truextend.AdmStudent.Services.Impl
             this._studentDao = studentDao;
         }
 
-        public StudentService()
-        {
-            this._studentDao = new StudentDao(string.Empty);
-        }
+        //public StudentService()
+        //{
+        //    this._studentDao = new StudentDao(string.Empty);
+        //}
+
         public bool InsertNewStudent(Student student)
         {
             return this.HandlerErrorAndExecute<bool>(() =>

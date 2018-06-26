@@ -17,5 +17,14 @@ namespace Truextend.AdmStudent.Commons
         {
             throw new NotImplementedException();
         }
+
+        public static void Fatal(string innerMessage, Exception exception)
+        {
+            throw new NotImplementedException();
+        }
+        public static void Info(string information)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

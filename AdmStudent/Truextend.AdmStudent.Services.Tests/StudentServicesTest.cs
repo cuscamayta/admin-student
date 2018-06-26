@@ -4,6 +4,8 @@ using Truextend.AdmStudent.Domain;
 using Truextend.AdmStudent.Domain.Enums;
 using Truextend.AdmStudent.Services.Impl;
 using System.Linq;
+using Truextend.AdmStudent.DAO.FileSystem;
+using System.IO;
 
 namespace Truextend.AdmStudent.Services.Tests
 {
@@ -15,7 +17,8 @@ namespace Truextend.AdmStudent.Services.Tests
         [TestInitialize]
         public void Initialize()
         {
-            _studentService = new StudentService();
+            var currentPathCsvFile = string.Concat(Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\")), @"\FakeData\students.csv");
+            _studentService = new StudentService(new StudentDao(currentPathCsvFile));
         }
 
         [TestMethod]
