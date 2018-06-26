@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Truextend.AdmStudent.Commons;
-using Truextend.AdmStudent.DAO;
-using Truextend.AdmStudent.DAO.FileSystem;
-using Truextend.AdmStudent.Domain;
-using Truextend.AdmStudent.Domain.Enums;
+﻿//-----------------------------------------------------------------------
+// <copyright file="StudentService.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Truextend.AdmStudent.Services.Impl
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Truextend.AdmStudent.DAO;
+    using Truextend.AdmStudent.Domain;
+    using Truextend.AdmStudent.Domain.Enums;
+
     public class StudentService : ServiceBase, IStudentService
     {
         private IStudentDao _studentDao;
@@ -19,11 +21,6 @@ namespace Truextend.AdmStudent.Services.Impl
         {
             this._studentDao = studentDao;
         }
-
-        //public StudentService()
-        //{
-        //    this._studentDao = new StudentDao(string.Empty);
-        //}
 
         public bool InsertNewStudent(Student student)
         {

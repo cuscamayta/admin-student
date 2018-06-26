@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//-----------------------------------------------------------------------
+// <copyright file="GUIDHelper.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Truextend.AdmStudent.Commons.Helpers
 {
+	using System;
+
     public static class GUIDHelper
     {
         public static long ToLong(this Guid guid)

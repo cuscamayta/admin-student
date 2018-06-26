@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Truextend.AdmStudent.Domain.Enums;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Student.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Truextend.AdmStudent.Domain
 {
+	using System;
+    using Truextend.AdmStudent.Domain.Enums;
+	
     public class Student
     {
-
+        
         public Student(string name, TypeStudent type, Gender gender, string lastUpdate)
         {
             this.Name = name;

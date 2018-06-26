@@ -1,17 +1,17 @@
-﻿using Nancy;
-using Nancy.Bootstrapper;
-using Nancy.TinyIoc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//-----------------------------------------------------------------------
+// <copyright file="APIBootstrapper.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Truextend.AdmStudent.API
 {
+    using Nancy;
+    using Nancy.Bootstrapper;
+    using Nancy.TinyIoc;
+
     public class APIBootstrapper : DefaultNancyBootstrapper
     {
-
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
             Nancy.Json.JsonSettings.MaxJsonLength = int.MaxValue;
@@ -23,7 +23,5 @@ namespace Truextend.AdmStudent.API
 
             container.Register<StudentSetupModule>().AsSingleton();
         }
-
-
     }
 }

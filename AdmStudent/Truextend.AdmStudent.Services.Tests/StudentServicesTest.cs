@@ -1,14 +1,21 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Truextend.AdmStudent.Domain;
-using Truextend.AdmStudent.Domain.Enums;
-using Truextend.AdmStudent.Services.Impl;
-using System.Linq;
-using Truextend.AdmStudent.DAO.FileSystem;
-using System.IO;
+﻿//-----------------------------------------------------------------------
+// <copyright file="StudentService.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
 
 namespace Truextend.AdmStudent.Services.Tests
 {
+    using System;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Truextend.AdmStudent.Domain;
+    using Truextend.AdmStudent.Domain.Enums;
+    using Truextend.AdmStudent.Services.Impl;
+    using System.Linq;
+    using Truextend.AdmStudent.DAO.FileSystem;
+    using System.IO;
+    
     [TestClass]
     public class StudentServicesTest
     {

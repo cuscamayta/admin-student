@@ -1,12 +1,13 @@
-﻿using Nancy.Hosting.Self;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//-----------------------------------------------------------------------
+// <copyright file="AdmStudentAPI.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Truextend.AdmStudent.API
 {
+	using Nancy.Hosting.Self;
+    using System;
     public class AdmStudentAPI
     {
         private string _url;
@@ -21,7 +22,9 @@ namespace Truextend.AdmStudent.API
         {
             if (isConsole)
             {
-                using (var host = new NancyHost(new Uri(url), new APIBootstrapper()))
+                HostConfiguration hostConfigs = new HostConfiguration();
+                hostConfigs.UrlReservations.CreateAutomatically = true;
+                using (var host = new NancyHost(new Uri(url)))
                 {
                     host.Start();
                     Console.Write(string.Format("Running on {0}\n", url));

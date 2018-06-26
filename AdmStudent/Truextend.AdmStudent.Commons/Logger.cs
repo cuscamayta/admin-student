@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Logger.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Truextend.AdmStudent.Commons
 {
+	using System;
+
     public class Logger
     {
         public static void Error(Exception exception)
@@ -24,7 +26,7 @@ namespace Truextend.AdmStudent.Commons
         }
         public static void Info(string information)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(information);
         }
     }
 }

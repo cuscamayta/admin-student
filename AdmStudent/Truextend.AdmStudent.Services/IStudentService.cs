@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Truextend.AdmStudent.Domain;
-using Truextend.AdmStudent.Domain.Enums;
+﻿//-----------------------------------------------------------------------
+// <copyright file="IStudentService.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
 
 namespace Truextend.AdmStudent.Services
 {
+    using System;
+    using System.Collections.Generic;
+    using Truextend.AdmStudent.Domain;
+    using Truextend.AdmStudent.Domain.Enums;
     public interface IStudentService
     {
         bool CreateNewStudent(Student student);

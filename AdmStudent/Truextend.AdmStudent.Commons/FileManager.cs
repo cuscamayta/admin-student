@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//-----------------------------------------------------------------------
+// <copyright file="FileManager.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Truextend.AdmStudent.Commons
 {
+	using System;
+	using System.Collections.Generic;
+	using System.IO;
+	using System.Linq;
+
     public class FileManager
     {
         private string _pathFile;

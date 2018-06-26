@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Truextend.AdmStudent.Commons;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Program.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Truextend.AdmStudent.API.Server
 {
+	using System;
+    using System.Collections.Specialized;
+	using System.Configuration;
+    using Truextend.AdmStudent.Commons;
+
     class Program
     {
         private const string LOGO = @"
