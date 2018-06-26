@@ -16,5 +16,7 @@ namespace Truextend.AdmStudent.DAO
 
         IEnumerable<Student> FindStudentsByGenderAndType(TypeStudent type, Gender gender);
 
+        int GetTotalStudents();
+
     }
 }

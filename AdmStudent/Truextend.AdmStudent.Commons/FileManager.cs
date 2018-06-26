@@ -39,6 +39,11 @@ namespace Truextend.AdmStudent.Commons
             return fileText;
         }
 
+        public int GetTotalLines()
+        {
+            var lines = ReadAllLines();
+            return lines.Count();
+        }
 
         public IEnumerable<string> FindByWord(string word)
         {

@@ -7,10 +7,11 @@ using Truextend.AdmStudent.Commons;
 using Truextend.AdmStudent.DAO;
 using Truextend.AdmStudent.DAO.FileSystem;
 using Truextend.AdmStudent.Domain;
+using Truextend.AdmStudent.Domain.Enums;
 
 namespace Truextend.AdmStudent.Services.Impl
 {
-    public class StudentService : IStudentService
+    public class StudentService : ServiceBase, IStudentService
     {
         private IStudentDao _studentDao;
 
@@ -25,31 +26,78 @@ namespace Truextend.AdmStudent.Services.Impl
         }
         public bool InsertNewStudent(Student student)
         {
-            try
+            return this.HandlerErrorAndExecute<bool>(() =>
             {
                 var studentId = _studentDao.Insert(student);
                 return studentId > 0;
-            }
-            catch (Exception exception)
-            {
-                Logger.Error(exception);
-                throw;
-            }
+            });
         }
 
-        private static int counter = 1;
         public int GetTotalStudents()
         {
-            try
+            return this.HandlerErrorAndExecute<int>(() =>
             {
-                var totalStudents = _studentDao.GetAll().Count();
-                return totalStudents + counter++;
-            }
-            catch (Exception exception)
+                return _studentDao.GetTotalStudents();
+            });
+        }
+
+        public bool CreateNewStudent(Student student)
+        {
+            return this.HandlerErrorAndExecute<bool>(() =>
             {
-                Logger.Error(exception);
-                throw;
-            }
+                _studentDao.Insert(student);
+                return true;
+            });
+        }
+
+        public bool DeleteStudent(Guid id)
+        {
+            return this.HandlerErrorAndExecute<bool>(() =>
+            {
+                _studentDao.Delete(id);
+                return true;
+            });
+        }
+
+        public IEnumerable<Student> GetAllStudents()
+        {
+            return this.HandlerErrorAndExecute<IEnumerable<Student>>(() =>
+            {
+                return _studentDao.GetAll();
+            });
+        }
+
+        public IEnumerable<Student> FindStudentByName(string name)
+        {
+            return this.HandlerErrorAndExecute<IEnumerable<Student>>(() =>
+            {
+                return _studentDao.FindStudentsByName(name).OrderBy(x => x.Name);
+            });
+        }
+
+        public IEnumerable<Student> FindStudentByType(TypeStudent type)
+        {
+            return this.HandlerErrorAndExecute<IEnumerable<Student>>(() =>
+            {
+                return _studentDao.FindStudentsByType(type).OrderBy(x => x.LastUpdate);
+            });
+        }
+
+        public IEnumerable<Student> FindStudentByTypeAndGender(Domain.Enums.TypeStudent type, Domain.Enums.Gender gender)
+        {
+            return this.HandlerErrorAndExecute<IEnumerable<Student>>(() =>
+            {
+                return _studentDao.FindStudentsByGenderAndType(type, gender).OrderBy(x => x.LastUpdate);
+            });
+        }
+
+
+        public IEnumerable<Student> FindStudentById(Guid id)
+        {
+            return this.HandlerErrorAndExecute<IEnumerable<Student>>(() =>
+            {
+                return _studentDao.FindById(id);
+            });
         }
     }
 }

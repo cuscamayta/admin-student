@@ -92,5 +92,11 @@ namespace Truextend.AdmStudent.DAO.FileSystem
                 return students;
             });
         }
+
+
+        public int GetTotalStudents()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
