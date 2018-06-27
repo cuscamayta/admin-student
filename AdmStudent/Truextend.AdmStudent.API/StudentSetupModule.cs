@@ -35,9 +35,11 @@ namespace Truextend.AdmStudent.API
 
         private Response GetAllStudents(dynamic parameters)
         {
-            var response = ServiceFacade.Instance.StudentService.GetAllStudents();
-
-            return Response.AsJson<IEnumerable<Student>>(response);
+            return HandlerErrorAndExecute<IEnumerable<Student>>(() =>
+            {
+                var response = ServiceFacade.Instance.StudentService.GetAllStudents();
+                return response;
+            });
         }
 
         private Response CreateStudent(dynamic parameters)

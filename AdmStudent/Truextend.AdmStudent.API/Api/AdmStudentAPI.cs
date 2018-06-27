@@ -25,7 +25,7 @@ namespace Truextend.AdmStudent.API
                 HostConfiguration hostConfigs = new HostConfiguration();
                 hostConfigs.UrlReservations.CreateAutomatically = true;
                 using (var host = new NancyHost(new Uri(url), new Bootstrapper()))
-                {
+                {                    
                     host.Start();
                     Console.Write(string.Format("Running on {0}\n", url));
                     Console.Write("Press enter to exit\n");

@@ -115,7 +115,7 @@ namespace Truextend.AdmStudent.Services.Impl
         {
             return this.HandlerErrorAndExecute<IEnumerable<Student>>(() =>
             {
-                return _studentDao.FindStudentsByType(type).OrderBy(x => x.LastUpdate);
+                return _studentDao.FindStudentsByType(type).OrderByDescending(x => x.LastUpdate.TimeOfDay).ThenBy(x => x.LastUpdate.Date);
             });
         }
 
@@ -128,7 +128,7 @@ namespace Truextend.AdmStudent.Services.Impl
         {
             return this.HandlerErrorAndExecute<IEnumerable<Student>>(() =>
             {
-                return _studentDao.FindStudentsByGenderAndType(type, gender).OrderBy(x => x.LastUpdate);
+                return _studentDao.FindStudentsByGenderAndType(type, gender).OrderByDescending(x => x.LastUpdate.TimeOfDay).ThenBy(x => x.LastUpdate.Date);
             });
         }
 

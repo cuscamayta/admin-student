@@ -37,12 +37,12 @@ namespace Truextend.AdmStudent.API.Server
                     bool isConsole = "true".Equals(ConfigurationManager.AppSettings["consoleMode"]);
                     Logger.Info(string.Format("Starting as a {0}", isConsole ? "Console App" : "Windows Service"));
                     if (isConsole)
-                    {
+                    {                        
                         StartAsConsoleApp(ConfigurationManager.AppSettings);
                     }
                     else
                     {
-                        StartAsWindowsService(ConfigurationManager.AppSettings);
+                        StartAsWindowsService(ConfigurationManager.AppSettings); 
                     }
                 }
                 catch (Exception ex)
@@ -62,7 +62,7 @@ namespace Truextend.AdmStudent.API.Server
 
 
         private static void StartAsConsoleApp(NameValueCollection settings)
-        {
+        {            
             Console.WriteLine(LOGO);
             AdmStudentAPI.ExecuteAPI(settings["apiUrl"]);
         }
