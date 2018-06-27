@@ -45,6 +45,7 @@
     <Compile Include="Helpers\GUIDHelper.cs" />
     <Compile Include="Helpers\ForEachHelper.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="Models\Response.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

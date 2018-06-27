@@ -10,7 +10,7 @@ namespace Truextend.AdmStudent.API
     using Nancy.Bootstrapper;
     using Nancy.TinyIoc;
 
-    public class APIBootstrapper : DefaultNancyBootstrapper
+    public class Bootstrapper : DefaultNancyBootstrapper
     {
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {

@@ -1,0 +1,92 @@
+{
+	"variables": [],
+	"info": {
+		"name": "AdmStudent",
+		"_postman_id": "8646038f-0a6e-eabf-f117-6d26de59e4fa",
+		"description": "Collection for test the Rest API AdmStudent",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Craete Student",
+			"request": {
+				"url": "http://localhost:3002/api/v1/student",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": \"d97ed30b-ec90-49f8-91d5-b89dcd07165e\",\n        \"type\": \"Kinder\",\n        \"name\": \"Jose\",\n        \"gender\": \"male\",\n        \"lastUpdate\": \"201806252036423343\"\n }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Students",
+			"request": {
+				"url": "http://localhost:3002/api/v1/students",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Student",
+			"request": {
+				"url": "http://localhost:3002/api/v1/students/d97ed30b-ec90-49f8-91d5-b53dcd07165e",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Search Student Type",
+			"request": {
+				"url": "http://localhost:3002/api/v1/students/types/Elementary",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Search Student Name",
+			"request": {
+				"url": "http://localhost:3002/api/v1/students/pepe",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Search Student Type Gender",
+			"request": {
+				"url": "http://localhost:3002/api/v1/students/types/high/gender/female",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

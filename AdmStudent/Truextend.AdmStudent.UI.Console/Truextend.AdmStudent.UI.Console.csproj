@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Formatter\ConsoleTable.cs" />
     <Compile Include="Model\RequestUri.cs" />
-    <Compile Include="Model\Response.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Request.cs" />

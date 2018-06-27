@@ -9,7 +9,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Truextend.AdmStudent.Domain;
+using Truextend.AdmStudent.Commons.Models;
 using Truextend.AdmStudent.UI.Console.Model;
+using Truextend.AdmStudent.Commons;
 
 namespace Truextend.AdmStudent.UI.Console.Service
 {
@@ -26,7 +28,7 @@ namespace Truextend.AdmStudent.UI.Console.Service
             }
         }
 
-        public static void MakeRequest(string uri, Action<Response<string>> printerData)
+        public static void MakeRequest(string uri, Action<ResponseDTO> printerData)
         {
             try
             {
@@ -38,19 +40,19 @@ namespace Truextend.AdmStudent.UI.Console.Service
 
                 using (StreamReader reader = new StreamReader(dataStream))
                 {
-                    var responseResult = new Response<string>(string.Empty, reader.ReadToEnd(), true, (int)response.StatusCode);
+                    var responseResult = new ResponseDTO(string.Empty, reader.ReadToEnd(), true, (int)response.StatusCode);
                     printerData(responseResult);
                 };
                 response.Close();
             }
             catch (SocketException socketException)
             {
-                var response = new Response<string>(socketException.InnerException.Message, string.Empty, false, 500);
+                var response = new ResponseDTO(socketException.InnerException.Message, string.Empty, false, (int)HttpStatusCode.ServiceUnavailable);
                 printerData(response);
             }
             catch (Exception exception)
             {
-                var response = new Response<string>(exception.InnerException.Message, string.Empty, false, 500);
+                var response = new ResponseDTO(exception.InnerException.Message, string.Empty, false, (int)HttpStatusCode.InternalServerError);
                 printerData(response);
             }
         }
@@ -78,8 +80,14 @@ namespace Truextend.AdmStudent.UI.Console.Service
                 }
                 return new RequestUri(requestType, parameter);
             }
+            catch (ArgumentException exception)
+            {
+                Logger.Error(exception);
+                return new RequestUri(TypeRequest.BadRequest, new Dictionary<string, string>());
+            }
             catch (Exception exception)
             {
+                Logger.Error(exception);
                 return new RequestUri(TypeRequest.BadRequest, new Dictionary<string, string>());
             }
         }

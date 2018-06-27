@@ -17,8 +17,9 @@ namespace Truextend.AdmStudent.API
     using Nancy.ModelBinding;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
+    using Truextend.AdmStudent.Commons.Models;
 
-    public class StudentSetupModule : NancyModule
+    public class StudentSetupModule : ModuleBase
     {
         public StudentSetupModule()
             : base("/api/v1")
@@ -28,7 +29,7 @@ namespace Truextend.AdmStudent.API
             this.Delete["/students/{studentGuid}"] = this.DeleteStudent;
             this.Get["/students/types/{type}"] = this.SearchStudentByType;
             this.Get["/students/{name}"] = this.SearchStudentByName;
-            this.Get["/students/types/{type}/gender/{gender}"] = this.SearchStudentByTypeAndGender;       
+            this.Get["/students/types/{type}/gender/{gender}"] = this.SearchStudentByTypeAndGender;
         }
 
         private Response GetAllStudents(dynamic parameters)
@@ -40,37 +41,51 @@ namespace Truextend.AdmStudent.API
 
         private Response CreateStudent(dynamic parameters)
         {
-            var student = this.Bind<Student>();
-            var response = ServiceFacade.Instance.StudentService.CreateNewStudent(student);
-
-            return Response.AsJson<bool>(response);
+            return HandlerErrorAndExecute<object>(() =>
+            {
+                var student = this.Bind<Student>();
+                var response = ServiceFacade.Instance.StudentService.CreateNewStudent(student);
+                return response;
+            });
         }
 
         private Response DeleteStudent(dynamic parameters)
         {
-            var studentId = (string)parameters.studentGuid;
-            var response = ServiceFacade.Instance.StudentService.DeleteStudent(new Guid(studentId));
-            return Response.AsJson<bool>(response);
+            return HandlerErrorAndExecute<object>(() =>
+            {
+                var studentId = (string)parameters.studentGuid;
+                var response = ServiceFacade.Instance.StudentService.DeleteStudent(new Guid(studentId));
+                return response;
+            });
         }
 
         private Response SearchStudentByName(dynamic parameters)
         {
-            var name = (string)parameters.name;
-            var response = ServiceFacade.Instance.StudentService.FindStudentByName(name);
-            return Response.AsJson<IEnumerable<Student>>(response);
+            return HandlerErrorAndExecute<IEnumerable<Student>>(() =>
+            {
+                var name = (string)parameters.name;
+                var response = ServiceFacade.Instance.StudentService.FindStudentByName(name);
+                return response;
+            });
         }
         private Response SearchStudentByType(dynamic parameters)
         {
-            var type = (string)parameters.type;
-            var response = ServiceFacade.Instance.StudentService.FindStudentByType(type.ToEnum<TypeStudent>());
-            return Response.AsJson<IEnumerable<Student>>(response);
+            return HandlerErrorAndExecute<IEnumerable<Student>>(() =>
+            {
+                var type = (string)parameters.type;
+                var response = ServiceFacade.Instance.StudentService.FindStudentByType(type.ToEnum<TypeStudent>());
+                return response;
+            });
         }
         private Response SearchStudentByTypeAndGender(dynamic parameters)
         {
-            var type = (string)parameters.type;
-            var gender = (string)parameters.gender;
-            var response = ServiceFacade.Instance.StudentService.FindStudentByTypeAndGender(type.ToEnum<TypeStudent>(), gender.ToEnum<Gender>());
-            return Response.AsJson<IEnumerable<Student>>(response);
+            return HandlerErrorAndExecute<IEnumerable<Student>>(() =>
+            {
+                var type = (string)parameters.type;
+                var gender = (string)parameters.gender;
+                var response = ServiceFacade.Instance.StudentService.FindStudentByTypeAndGender(type.ToEnum<TypeStudent>(), gender.ToEnum<Gender>());
+                return response;
+            });
         }
     }
 }

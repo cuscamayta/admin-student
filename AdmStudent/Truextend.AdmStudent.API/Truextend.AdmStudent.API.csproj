@@ -56,9 +56,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdmStudentAPI.cs" />
-    <Compile Include="Bootstrapper\APIBootstrapper.cs" />
-    <Compile Include="JsonConvertEnum.cs" />
+    <Compile Include="Api\AdmStudentAPI.cs" />
+    <Compile Include="Bootstrapper\Bootstrapper.cs" />
+    <Compile Include="Converters\JsonConvertEnum.cs" />
+    <Compile Include="ModuleBase.cs" />
     <Compile Include="Resolver\DependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceFacade.cs" />

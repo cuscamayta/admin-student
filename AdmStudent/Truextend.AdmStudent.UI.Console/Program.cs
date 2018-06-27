@@ -10,6 +10,7 @@ using ConsoleTables;
 using Truextend.AdmStudent.UI.Console.Model;
 using Truextend.AdmStudent.UI.Console.Service;
 using Truextend.AdmStudent.Commons.Helpers;
+using Truextend.AdmStudent.Commons.Models;
 
 namespace Examples.System.Net
 {
@@ -56,11 +57,11 @@ namespace Examples.System.Net
             }
         }
 
-        private static void PrinterData(Response<string> response)
+        private static void PrinterData(ResponseDTO response)
         {
             if (response.Success)
             {
-                var students = JsonConvert.DeserializeObject<List<Student>>(response.Data);
+                var students = JsonConvert.DeserializeObject<List<Student>>(response.Data.ToString());
                 var table = new ConsoleTable("Id", "Type", "Name", "Gender", "LastUpdate");
 
                 students.ForEachWithIndex((student, index) =>
