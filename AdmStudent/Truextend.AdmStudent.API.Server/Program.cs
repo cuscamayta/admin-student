@@ -14,13 +14,13 @@ namespace Truextend.AdmStudent.API.Server
     class Program
     {
         private const string LOGO = @"
- __ _             _            _       _      ___ _____ 
-/ _\ |_ _   _  __| | ___ _ __ | |_    /_\    / _ \\_   \
-\ \| __| | | |/ _` |/ _ \ '_ \| __|  //_\\  / /_)/ / /\/
-_\ \ |_| |_| | (_| |  __/ | | | |_  /  _  \/ ___/\/ /_  
-\__/\__|\__,_|\__,_|\___|_| |_|\__| \_/ \_/\/   \____/  
+         __ _             _            _       _      ___ _____ 
+        / _\ |_ _   _  __| | ___ _ __ | |_    /_\    / _ \\_   \
+        \ \| __| | | |/ _` |/ _ \ '_ \| __|  //_\\  / /_)/ / /\/
+        _\ \ |_| |_| | (_| |  __/ | | | |_  /  _  \/ ___/\/ /_  
+        \__/\__|\__,_|\__,_|\___|_| |_|\__| \_/ \_/\/   \____/  
                                                         
-";
+        ";
 
         static void Main(string[] args)
         {
@@ -28,7 +28,7 @@ _\ \ |_| |_| | (_| |  __/ | | | |_  /  _  \/ ___/\/ /_
             {
                 Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-                Console.WriteLine("Starting WebUI API Service");
+                Console.WriteLine("Starting API Service");
 
                 var url = ConfigurationManager.AppSettings["apiUrl"];
 
