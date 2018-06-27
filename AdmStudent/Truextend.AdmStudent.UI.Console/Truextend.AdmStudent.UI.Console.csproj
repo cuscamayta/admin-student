@@ -32,8 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,11 +46,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formatter\ConsoleTable.cs" />
+    <Compile Include="Model\RequestUri.cs" />
+    <Compile Include="Model\Response.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Request.cs" />
+    <Compile Include="Enums\TypeRequest.cs" />
+    <Compile Include="Uris.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Uris.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Truextend.AdmStudent.Commons\Truextend.AdmStudent.Commons.csproj">
+      <Project>{9cd44461-0aea-4fec-b21c-280709983daa}</Project>
+      <Name>Truextend.AdmStudent.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Truextend.AdmStudent.Domain\Truextend.AdmStudent.Domain.csproj">
+      <Project>{45ff4bbe-4515-4c56-b337-9b8d06aa9814}</Project>
+      <Name>Truextend.AdmStudent.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Uris.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Uris.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
