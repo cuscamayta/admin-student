@@ -1,5 +1,4 @@
 # ADMStudent
-[![N|Solid](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq7czqEDxTcTPH7tu3jjHrhuS7Tamcb-QeIRXKkdFK2zLhzO)](https://www.truextend.com/)
 Exercise code example for:
 
 ADMStudent is a  simple modeling systems example for manage stuednts of different types.
