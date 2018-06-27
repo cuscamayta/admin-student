@@ -49,5 +49,5 @@ Go to service root (**..\AdmStudent\Truextend.AdmStudent.API.Server\bin\Debug**)
 **AdmStudent** was developed using the Microservice oriented architecture allowing the horizontal scalability, also the concepts of NLayers where used and the best programming practices.
 
 # Limitations
-The current sample is not completely finished, becasuse only contains the simple and basic implementation, the **Logger** services , and the **UnitOfWork** pattern is not implemented and it's possible that exist some bugs.
+The current sample is not completely finished, becasuse only contains the simple and basic implementation, the **Logger** services, **code documentation** and the **UnitOfWork** pattern is not implemented and it's possible that exist some bugs.
 
