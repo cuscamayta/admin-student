@@ -5,12 +5,10 @@ A simple modeling system example to manage different type of students
 2. Create new students.
 3. Delete an specific student.
 4. Search for students:
-	 4.1. By student name, sorted alphabetically. A-z
-	 4.2. By student type(kinder,elementary,high,university) sorting by date, most recent to last recent.
-	 4.3. By student gender and type(female elementary) sorting by date, most recent to least recent.
-1. Elemento de lista 1
-2.  Elemento de lista 2
-    - Elemento de lista 3
+    - By student name, sorted alphabetically
+	- By student type(kinder,elementary,high,university) sorting by date, most recent to last recent
+	- By student gender and type(female elementary) sorting by date, most recent to least recent
+	
     - Elemento de lista 4
         1. Elemento de lista 5
         2. Elemento de lista 6
