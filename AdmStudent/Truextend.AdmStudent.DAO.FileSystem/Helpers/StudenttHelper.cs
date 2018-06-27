@@ -25,7 +25,7 @@ namespace Truextend.AdmStudent.DAO.FileSystem.Helpers
         /// <returns>A string that represent the student object</returns>
         public static string ToCsvString(this Student student)
         {
-            return string.Format("{0},{1},{2},{3},{4}", student.Id, student.Type.ToString(), student.Name, student.Gender.ToString(), student.LastUpdate);
+            return string.Format("{0},{1},{2},{3},{4}", student.Id, student.Type.ToString(), student.Name, student.Gender.ToString(), student.LastUpdate.ToTimestamp());
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Truextend.AdmStudent.DAO.FileSystem.Helpers
         private static Student BuildStudentFromString(string stringStudent)
         {
             var fields = stringStudent.Split(',');
-            return new Student(fields[2], fields[1].ToEnum<TypeStudent>(), fields[3].ToEnum<Gender>(), fields[4]) { Id = new Guid(fields[0]) };
+            return new Student(fields[2], fields[1].ToEnum<TypeStudent>(), fields[3].ToEnum<Gender>(), fields[4].UnixTimestampToDateTime()) { Id = new Guid(fields[0]) };
         }
 
         /// <summary>
@@ -56,7 +56,13 @@ namespace Truextend.AdmStudent.DAO.FileSystem.Helpers
         /// <returns>a list of object type of <see cref="Student"/> class.</returns>
         public static IEnumerable<Student> ToList(this IEnumerable<string> csvString)
         {
-            var students = csvString.Select(studentStr => BuildStudentFromString(studentStr));
+            var students = new List<Student>();
+            foreach (var item in csvString)
+            {
+                var student = BuildStudentFromString(item);
+                students.Add(student);
+            }
+            //var students = csvString.Select(studentStr => BuildStudentFromString(studentStr));
             return students;
         }
     }

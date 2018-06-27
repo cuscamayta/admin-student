@@ -18,19 +18,21 @@ namespace Truextend.AdmStudent.Commons.Helpers
             return numberOfSeconds.ToString();
         }
 
-        public static String ToTimestamp(this DateTime value)
+        public static string ToTimestamp(this DateTime value)
         {
-            var baseDate = new DateTime(1970, 01, 01);
-            var numberOfSeconds = value.Subtract(baseDate).TotalSeconds;
-            return numberOfSeconds.ToString();
+            Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+            return unixTimestamp.ToString();
         }
 
-        public static string TimeStampToDateTime(this string unixTimeStamp)
-        {
-            // Unix timestamp is seconds past epoch
-            System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-            dtDateTime = dtDateTime.AddSeconds(double.Parse(unixTimeStamp)).ToLocalTime();
-            return dtDateTime.ToString("yyyy-MM-dd HH:mm:ss,fff");
+        public static DateTime TimeStampToDateTime(this string unixTimeStamp)
+        {            
+            DateTime date = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc).AddSeconds(double.Parse(unixTimeStamp));
+            return date;
+        }
+        public static DateTime UnixTimestampToDateTime(this string timestamp)
+        {            
+            DateTime date = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc).AddSeconds(double.Parse(timestamp));
+            return date;
         }
 
         private static DateTime ConvertStringToDate(this string dateString)

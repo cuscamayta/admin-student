@@ -24,7 +24,7 @@ namespace Truextend.AdmStudent.DAO.Tests
         [TestMethod]
         public void ShouldBeCreateANewStudentAndReturnTheCurrentId()
         {
-            var newStudent = new Student("Pepe", TypeStudent.Elementary, Gender.Female, DateTime.Now.ToTimestamp());
+            var newStudent = new Student("Carmona3", TypeStudent.High, Gender.Female, DateTime.Now);
             var studentId = _studentDao.Insert(newStudent);
 
             Assert.IsNotNull(studentId);

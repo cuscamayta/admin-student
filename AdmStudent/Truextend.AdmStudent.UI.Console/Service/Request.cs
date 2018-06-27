@@ -40,8 +40,9 @@ namespace Truextend.AdmStudent.UI.Console.Service
 
                 using (StreamReader reader = new StreamReader(dataStream))
                 {
-                    var responseResult = new ResponseDTO(string.Empty, reader.ReadToEnd(), true, (int)response.StatusCode);
-                    printerData(responseResult);
+                    //var responseResult = new ResponseDTO(string.Empty, reader.ReadToEnd(), true, (int)response.StatusCode);
+                    var result = JsonConvert.DeserializeObject<ResponseDTO>(reader.ReadToEnd());
+                    printerData(result);
                 };
                 response.Close();
             }

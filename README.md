@@ -1,18 +1,18 @@
 # ADMStudent
 Exercise code example for:
 
-ADMStudent is a  simple modeling systems example for manage stuednts of different types.
+A simple modeling system example to manage different type of students
 # Features!
-  - Store students in the system
-  - Create new Student
-  - Delete a specific student
-  - Search for students in the follow ways:
-        --  By student name, sorted alphabetically
-        --  By student type(kinder,elementary,high,university) sorting by date, most recent to last recent
+  - Store students in the system.
+  - Create new students.
+  - Delete an specific student.
+  - Search for students:
+        --  By student name, sorted alphabetically. A-z
+        --  By student type(kinder,elementary,high,university) sorting by date, most recent to last recent.
         --  By student gender and type(female elementary) sorting by date, most recent to least recent.
 
 # About the project!
-This sample was developed using :
+This sample was developed using:
 
 | Technology | Site |
 | ------ | ------ |
@@ -23,11 +23,11 @@ This sample was developed using :
 
 # Usage !
 
-1. Open a command console as Administrator
-2. Go to the folder bin/release in the root application
-3. On the app root execute the Truextend.AdmStudent.API.Server.exe
-4. Open a browser or postman
-5. for execute the dfferent features follow the nes descriptions uri :
+1. Open a command console as Administrator.
+2. Go to the folder bin/release in the root application.
+3. On the app root execute  **Truextend.AdmStudent.API.Server.exe**.
+4. Open a browser or postman.
+5. To execute the different features follow below instructions :
     5.1. Get all students (http://localhost:3002/#!/api/v1/admstudents/students/)
     5.2. Create student (http://localhost:3002/#!/api/v1/admstudents/students/)
     5.3. Get all students (http://localhost:3002/#!/api/v1/admstudents/students/)
@@ -35,4 +35,4 @@ This sample was developed using :
     5.5. Get all students (http://localhost:3002/#!/api/v1/admstudents/students/)
 
 # About the architecture
-**AdmStudent** was developed following the microservice oriented architecture allowing the horizontal scalability, and also using the concept of NLayers and using the best programming practices.
+**AdmStudent** was developed using the Microservice oriented architecture allowing the horizontal scalability, also the concepts of NLayers where used and the best programming practices.

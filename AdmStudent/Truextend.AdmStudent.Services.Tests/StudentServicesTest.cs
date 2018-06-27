@@ -15,7 +15,7 @@ namespace Truextend.AdmStudent.Services.Tests
     using System.Linq;
     using Truextend.AdmStudent.DAO.FileSystem;
     using System.IO;
-    
+
     [TestClass]
     public class StudentServicesTest
     {
@@ -32,7 +32,7 @@ namespace Truextend.AdmStudent.Services.Tests
         public void ShouldBeStoreStudentAfterInsert()
         {
             var studentCountInit = _studentService.GetTotalStudents();
-            var newStudent = new Student() { Type = TypeStudent.Elementary, Name = "Pepe", Gender = Gender.Female, LastUpdate = "123548" };
+            var newStudent = new Student() { Type = TypeStudent.Elementary, Name = "Pepe", Gender = Gender.Female, LastUpdate = DateTime.Now };
             var isSuccess = _studentService.CreateNewStudent(newStudent);
             var studentsCountAfterInsert = _studentService.GetTotalStudents();
 

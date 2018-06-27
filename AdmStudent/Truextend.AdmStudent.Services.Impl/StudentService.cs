@@ -89,7 +89,7 @@ namespace Truextend.AdmStudent.Services.Impl
         {
             return this.HandlerErrorAndExecute<IEnumerable<Student>>(() =>
             {
-                return _studentDao.GetAll();
+                return _studentDao.GetAll().OrderBy(x => x.Name);
             });
         }
 

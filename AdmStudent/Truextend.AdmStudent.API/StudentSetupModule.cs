@@ -7,6 +7,7 @@
 namespace Truextend.AdmStudent.API
 {
     using Nancy;
+    using Nancy.Extensions;
     using System;
     using System.Collections;
     using System.Collections.Generic;
@@ -45,7 +46,7 @@ namespace Truextend.AdmStudent.API
             {
                 var student = this.Bind<Student>();
                 var response = ServiceFacade.Instance.StudentService.CreateNewStudent(student);
-                return response;
+                return HttpStatusCode.OK.ToString();
             });
         }
 
