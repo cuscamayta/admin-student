@@ -8,21 +8,30 @@ namespace Truextend.AdmStudent.Commons
 {
 	using System;
 
-    public class Logger
+    public class Logger 
     {
+        public Logger()
+        {
+        }
+
         public static void Error(Exception exception)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(exception.Message);
         }
 
         public static void Error(Exception exception, string message)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(message);
+        }
+
+        public static void Debug( string message)
+        {
+            Console.WriteLine(message);
         }
 
         public static void Fatal(string innerMessage, Exception exception)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(innerMessage);
         }
         public static void Info(string information)
         {

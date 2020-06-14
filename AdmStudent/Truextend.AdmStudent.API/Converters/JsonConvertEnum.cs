@@ -1,12 +1,15 @@
-﻿using Nancy.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//-----------------------------------------------------------------------
+// <copyright file="JsonConvertEnum.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Truextend.AdmStudent.API
 {
+    using Nancy.Json;
+    using System;
+    using System.Collections.Generic;
+
     public class JsonConvertEnum : JavaScriptPrimitiveConverter
     {
         public override IEnumerable<Type> SupportedTypes
@@ -16,7 +19,7 @@ namespace Truextend.AdmStudent.API
                 yield return typeof(Enum);
             }
         }
-
+        
         public override object Deserialize(
             object primitiveValue, Type type, JavaScriptSerializer serializer)
         {

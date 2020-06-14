@@ -1,21 +1,21 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using System.Text;
-using Truextend.AdmStudent.Domain;
-using Truextend.AdmStudent.UI.Console;
-using ConsoleTables;
-using Truextend.AdmStudent.UI.Console.Model;
-using Truextend.AdmStudent.UI.Console.Service;
-using Truextend.AdmStudent.Commons.Helpers;
-using Truextend.AdmStudent.Commons.Models;
+﻿//-----------------------------------------------------------------------
+// <copyright file="WebRequestApp.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
-namespace Examples.System.Net
+namespace Truextend.AdmStudent.UI.Console
 {
+    using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
+    using Truextend.AdmStudent.Domain;    
+    using ConsoleTables;
+    using Truextend.AdmStudent.UI.Console.Service;
+    using Truextend.AdmStudent.Commons.Helpers;
+    using Truextend.AdmStudent.Commons.Models;
 
-    public class WebRequestGetExample
+    public class WebRequestApp
     {
         public static void Main(string[] args)
         {

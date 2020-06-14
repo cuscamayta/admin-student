@@ -8,7 +8,6 @@ namespace Truextend.AdmStudent.DAO.FileSystem.Helpers
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using Truextend.AdmStudent.Commons.Helpers;
     using Truextend.AdmStudent.Domain;
     using Truextend.AdmStudent.Domain.Enums;
@@ -62,7 +61,6 @@ namespace Truextend.AdmStudent.DAO.FileSystem.Helpers
                 var student = BuildStudentFromString(item);
                 students.Add(student);
             }
-            //var students = csvString.Select(studentStr => BuildStudentFromString(studentStr));
             return students;
         }
     }

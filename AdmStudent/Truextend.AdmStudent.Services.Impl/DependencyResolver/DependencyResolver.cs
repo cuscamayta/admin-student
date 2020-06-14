@@ -1,4 +1,9 @@
-﻿
+﻿//-----------------------------------------------------------------------
+// <copyright file="DependencyResolver.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
 namespace Truextend.AdmStudent.Services.Impl.DependencyResolver
 {
     using Ninject.Modules;
@@ -8,7 +13,7 @@ namespace Truextend.AdmStudent.Services.Impl.DependencyResolver
     {
         public override void Load()
         {
-            Kernel.Bind<IStudentDao>().To<StudentDao>();//.WithConstructorArgument("pathCsvFile", "pathcustomtest");
+            Kernel.Bind<IStudentDao>().To<StudentDao>();
         }
     }
 }

@@ -4,10 +4,11 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 namespace Truextend.AdmStudent.Domain.Enums
 {
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+
     /// <summary>
     /// Contain the options for type student
     /// </summary>

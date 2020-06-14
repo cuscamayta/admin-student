@@ -28,6 +28,7 @@ namespace Truextend.AdmStudent.Domain
         public Student()
         {
             Id = Guid.NewGuid();
+            Name = string.Empty;
             Type = TypeStudent.Kinder;
             Gender = Gender.Female;
             LastUpdate = DateTime.Now;

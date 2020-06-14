@@ -1,20 +1,21 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Truextend.AdmStudent.Domain;
-using Truextend.AdmStudent.Commons.Models;
-using Truextend.AdmStudent.UI.Console.Model;
-using Truextend.AdmStudent.Commons;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Request.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Truextend.AdmStudent.UI.Console.Service
 {
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Net.Sockets;
+using System.Text.RegularExpressions;
+using Truextend.AdmStudent.Commons.Models;
+using Truextend.AdmStudent.UI.Console.Model;
+using Truextend.AdmStudent.Commons;
     public class Request
     {
         public void MakeRequestCreateStudent(Action<object, UploadStringCompletedEventArgs> afterExecuteRequest)
@@ -39,8 +40,7 @@ namespace Truextend.AdmStudent.UI.Console.Service
                 Stream dataStream = response.GetResponseStream();
 
                 using (StreamReader reader = new StreamReader(dataStream))
-                {
-                    //var responseResult = new ResponseDTO(string.Empty, reader.ReadToEnd(), true, (int)response.StatusCode);
+                {                    
                     var result = JsonConvert.DeserializeObject<ResponseDTO>(reader.ReadToEnd());
                     printerData(result);
                 };

@@ -7,18 +7,13 @@
 namespace Truextend.AdmStudent.API
 {
     using Nancy;
-    using Nancy.Extensions;
     using System;
-    using System.Collections;
-    using System.Collections.Generic;
     using Truextend.AdmStudent.Domain;
     using Truextend.AdmStudent.Domain.Enums;
     using Truextend.AdmStudent.Commons.Helpers;
-    using Truextend.AdmStudent.Commons;
     using Nancy.ModelBinding;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using Truextend.AdmStudent.Commons.Models;
+    using Nancy.Validation;
+    using Truextend.AdmStudent.API.Validators;
 
     public class StudentSetupModule : ModuleBase
     {
@@ -35,7 +30,7 @@ namespace Truextend.AdmStudent.API
 
         private Response GetAllStudents(dynamic parameters)
         {
-            return HandlerErrorAndExecute<IEnumerable<Student>>(() =>
+            return HandlerErrorAndExecute(() =>
             {
                 var response = ServiceFacade.Instance.StudentService.GetAllStudents();
                 return response;
@@ -44,17 +39,17 @@ namespace Truextend.AdmStudent.API
 
         private Response CreateStudent(dynamic parameters)
         {
-            return HandlerErrorAndExecute<object>(() =>
-            {
-                var student = this.Bind<Student>();
-                var response = ServiceFacade.Instance.StudentService.CreateNewStudent(student);
-                return HttpStatusCode.OK.ToString();
-            });
+            return ValidateHandlerErrorAndExecute<object>(this.Validate(this.Bind<Student>()), () =>
+             {
+                 var student = this.Bind<Student>();
+                 var response = ServiceFacade.Instance.StudentService.CreateNewStudent(student);
+                 return HttpStatusCode.OK.ToString();
+             });
         }
 
         private Response DeleteStudent(dynamic parameters)
         {
-            return HandlerErrorAndExecute<object>(() =>
+            return ValidateHandlerErrorAndExecute<object>(StringValidator.ValidateGuid("StudentId", (string)parameters.studentGuid), () =>
             {
                 var studentId = (string)parameters.studentGuid;
                 var response = ServiceFacade.Instance.StudentService.DeleteStudent(new Guid(studentId));
@@ -64,25 +59,26 @@ namespace Truextend.AdmStudent.API
 
         private Response SearchStudentByName(dynamic parameters)
         {
-            return HandlerErrorAndExecute<IEnumerable<Student>>(() =>
-            {
-                var name = (string)parameters.name;
-                var response = ServiceFacade.Instance.StudentService.FindStudentByName(name);
-                return response;
-            });
+            return ValidateHandlerErrorAndExecute(StringValidator.ValidateString("name", (string)parameters.name), () =>
+               {
+                   var name = (string)parameters.name;
+                   var response = ServiceFacade.Instance.StudentService.FindStudentByName(name);
+                   return response;
+               });
         }
+
         private Response SearchStudentByType(dynamic parameters)
         {
-            return HandlerErrorAndExecute<IEnumerable<Student>>(() =>
-            {
-                var type = (string)parameters.type;
-                var response = ServiceFacade.Instance.StudentService.FindStudentByType(type.ToEnum<TypeStudent>());
-                return response;
-            });
+            return ValidateHandlerErrorAndExecute(StringValidator.ValidateString("type", (string)parameters.type), () =>
+             {
+                 var type = (string)parameters.type;
+                 var response = ServiceFacade.Instance.StudentService.FindStudentByType(type.ToEnum<TypeStudent>());
+                 return response;
+             });
         }
         private Response SearchStudentByTypeAndGender(dynamic parameters)
         {
-            return HandlerErrorAndExecute<IEnumerable<Student>>(() =>
+            return HandlerErrorAndExecute(() =>
             {
                 var type = (string)parameters.type;
                 var gender = (string)parameters.gender;

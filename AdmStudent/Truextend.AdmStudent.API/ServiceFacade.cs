@@ -1,18 +1,19 @@
-﻿using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Configuration;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Truextend.AdmStudent.DAO.FileSystem;
-using Truextend.AdmStudent.Services;
-using Truextend.AdmStudent.Services.Impl;
+﻿//-----------------------------------------------------------------------
+// <copyright file="ServiceFacade.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Truextend.AdmStudent.API
 {
+    using Ninject;
+    using System;
+    using System.Configuration;
+    using System.IO;
+    using Truextend.AdmStudent.DAO.FileSystem;
+    using Truextend.AdmStudent.Services;
+    using Truextend.AdmStudent.Services.Impl;
+
     public class ServiceFacade
     {
         private IKernel Kernel;
@@ -52,7 +53,7 @@ namespace Truextend.AdmStudent.API
             }
         }
 
-        private IStudentService _studentService;
+        private readonly IStudentService _studentService;
 
         public IStudentService StudentService
         {

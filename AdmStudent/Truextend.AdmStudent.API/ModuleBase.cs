@@ -1,18 +1,31 @@
-﻿using Nancy;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Truextend.AdmStudent.Commons.Models;
+﻿//-----------------------------------------------------------------------
+// <copyright file="ModuleBase.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Truextend.AdmStudent.API
 {
+    using Nancy;
+    using Nancy.Validation;
+    using System;
+    using Truextend.AdmStudent.Commons.Models;
+
     public abstract class ModuleBase : NancyModule
     {
         public ModuleBase(string uri)
             : base(uri)
         {
+        }
+
+        public Response ValidateHandlerErrorAndExecute<T>(ModelValidationResult validateModel, Func<T> funcToExecute) where T : class
+        {
+            if (!validateModel.IsValid)
+            {
+                return Response.AsJson(new ResponseDTO("Invalid parameters", validateModel.Errors, false, (int)HttpStatusCode.BadRequest));
+            }
+
+            return HandlerErrorAndExecute(funcToExecute);
         }
 
         public Response HandlerErrorAndExecute<T>(Func<T> funcToExecute) where T : class
@@ -40,6 +53,5 @@ namespace Truextend.AdmStudent.API
                 return Response.AsJson(responseResult);
             }
         }
-
     }
 }

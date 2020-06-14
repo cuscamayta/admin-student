@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//-----------------------------------------------------------------------
+// <copyright file="ForEachHelper.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Truextend.AdmStudent.Commons.Helpers
 {
+    using System;
+    using System.Collections.Generic;
     public static class ForEachHelper
     {
         public static void ForEachWithIndex<T>(this IEnumerable<T> enumerable, Action<T, int> handler)
@@ -15,5 +17,4 @@ namespace Truextend.AdmStudent.Commons.Helpers
                 handler(item, idx++);
         }
     }
-
 }

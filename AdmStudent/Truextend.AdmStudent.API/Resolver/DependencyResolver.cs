@@ -1,25 +1,22 @@
-﻿using Ninject;
-using Ninject.Modules;
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Truextend.AdmStudent.Services;
-using Truextend.AdmStudent.Services.Impl;
+﻿//-----------------------------------------------------------------------
+// <copyright file="DependencyResolver.cs" company="Truextend">
+//     Copyright (c) Truextend. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Truextend.AdmStudent.API
 {
+    using Ninject;
+    using System.Collections.Specialized;
+    using Truextend.AdmStudent.Services;
+    using Truextend.AdmStudent.Services.Impl;
+
     public class DependencyResolver
     {
         public static IKernel RegisterAndCreateKernel(NameValueCollection settings)
         {
             IKernel kernel = new StandardKernel();
             kernel.Bind<IStudentService>().To<StudentService>();
-            //var warrior = kernel.Get<Samurai>();
-            //warrior.Attack("the evildoers");
-            //Console.ReadLine();
 
             return kernel;
         }

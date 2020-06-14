@@ -20,7 +20,6 @@ namespace Truextend.AdmStudent.Commons
             this._pathFile = pathFile;
         }
 
-
         public IEnumerable<string> ReadAllLines()
         {
             var lines = new List<string>();
@@ -61,9 +60,9 @@ namespace Truextend.AdmStudent.Commons
             int line_number = 0;
             int line_to_delete = 12;
 
-            using (StreamReader reader = new StreamReader("C:\\input"))
+            using (StreamReader reader = new StreamReader(_pathFile))
             {
-                using (StreamWriter writer = new StreamWriter("C:\\output"))
+                using (StreamWriter writer = new StreamWriter(_pathFile))
                 {
                     while ((line = reader.ReadLine()) != null)
                     {
@@ -79,8 +78,7 @@ namespace Truextend.AdmStudent.Commons
         }
 
         public string FindAndRemoveLine(string word)
-        {
-            //string line = string.Empty;
+        {            
             var lineToRemove = string.Empty;
             var lines = ReadAllLines();
 
@@ -136,7 +134,5 @@ namespace Truextend.AdmStudent.Commons
 
             }
         }
-
-
     }
 }

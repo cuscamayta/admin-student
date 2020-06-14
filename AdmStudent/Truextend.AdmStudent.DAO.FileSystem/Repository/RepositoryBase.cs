@@ -3,6 +3,7 @@
 //     Copyright (c) Truextend. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
+
 namespace Truextend.AdmStudent.DAO.FileSystem.Helpers
 {
 	using System;
