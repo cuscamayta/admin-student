@@ -1,0 +1,44 @@
+
+img{
+    height: 180px; 
+    width: 100%; 
+    display: block;
+}
+
+.card-text{
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.type-student{
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    padding: 4px;
+    font-size: 10px;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
+    padding-top: 2px;
+    font-weight: 500;
+    padding-bottom: 2px;
+}
+
+.info{
+    position: absolute;
+    bottom: 31px;
+    background-color: #17161694;
+    width: 100%;
+    color: white;    
+    padding-left: 14px;
+    font-size: 12px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    p{
+        margin-bottom: 0px;
+    }
+}
+
+.relative{
+    position: relative;
+}

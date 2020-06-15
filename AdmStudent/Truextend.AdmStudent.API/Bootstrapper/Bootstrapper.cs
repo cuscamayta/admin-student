@@ -10,6 +10,7 @@ namespace Truextend.AdmStudent.API
     using Nancy.Bootstrapper;
     using Nancy.TinyIoc;
     using Nancy.Validation.FluentValidation;
+    using System.Linq;
     using Truextend.AdmStudent.Commons;
 
     public class Bootstrapper : DefaultNancyBootstrapper
@@ -25,15 +26,42 @@ namespace Truextend.AdmStudent.API
             Nancy.Json.JsonSettings.PrimitiveConverters.Add(new JsonConvertEnum());
             Nancy.Json.JsonSettings.RetainCasing = true;
             Nancy.Json.JsonSettings.MaxJsonLength = int.MaxValue;
+            EnableCORS(pipelines);
             pipelines.BeforeRequest.AddItemToStartOfPipeline(context =>
             {
                 if (context != null)
                 {
+                    //EnabledCORS(context);
                     var requestData = ConvertToString(context.Request.Body);
                     Logger.Debug(string.Format("Request: {0}", context.Request.Url));
                     Logger.Debug(string.Format("Request Data : {0}", requestData));
                 }
                 return null;
+            });
+        }
+
+        private void EnableCORS(IPipelines pipelines)
+        {
+            pipelines.AfterRequest.AddItemToEndOfPipeline(ctx =>
+            {
+                if (ctx.Request.Headers.Keys.Contains("Origin"))
+                {
+                    var origins = "" + string.Join(" ", ctx.Request.Headers["Origin"]);
+                    ctx.Response.Headers["Access-Control-Allow-Origin"] = origins;
+
+                    if (ctx.Request.Method == "OPTIONS")
+                    {                        
+                        ctx.Response.Headers["Access-Control-Allow-Methods"] =
+                            "GET, POST, PUT, DELETE, OPTIONS";
+
+                        if (ctx.Request.Headers.Keys.Contains("Access-Control-Request-Headers"))
+                        {
+                            var allowedHeaders = "" + string.Join(
+                                ", ", ctx.Request.Headers["Access-Control-Request-Headers"]);
+                            ctx.Response.Headers["Access-Control-Allow-Headers"] = allowedHeaders;
+                        }
+                    }
+                }
             });
         }
 

@@ -1,1 +1,9 @@
-<p>student-card works!</p>
+<div class="relative">
+    <p class="type-student">{{student.Type}}</p>
+    <img src="https://avatars2.githubusercontent.com/u/1234{{studentIndex}}?s=360" alt="student profile">
+    <div class="info">
+        <p>{{'common.name' | translate}} : <i><strong>{{student.Name}}</strong></i></p>
+        <p>{{'common.gender' | translate}}: <i><strong>{{student.Gender}}</strong></i></p>
+    </div>
+    <p class="card-text">{{'common.code' | translate}} : {{student.Id}}</p>
+</div>

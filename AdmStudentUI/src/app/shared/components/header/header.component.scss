@@ -1,0 +1,17 @@
+@import '../../../styles-variables.scss';
+
+.bg-primary{
+  background-color: $primary-blue;
+  .mat-slide-toggle {  
+    color: white;
+  }
+  .d-flex {
+    display: block!important;
+    a{
+      margin-right: 20px;
+      padding: 8px;    
+      border-radius: 5px;
+      color: white;
+    }
+  }
+}

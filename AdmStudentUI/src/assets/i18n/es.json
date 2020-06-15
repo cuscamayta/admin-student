@@ -1,0 +1,26 @@
+{
+    "validation": {
+        "messages": {          
+            "badRequest": "Por favor revisar todos los campos, algún campo esta vacio o invalido",
+            "update": "Actualizando el sistema con sus cambios.",
+            "save": "Se actualizo correctamente."         
+        }
+    },
+    "globalError": {
+        "tittle": "APPLICATION ERROR",
+        "error": "ERROR"
+    },
+    "navigation": {
+        "home": "Inicio",
+        "students": "Estudiantes",
+        "student": "Estudiante",
+        "detail": "Detalle",        
+        "preferences": "Preferencias"
+    },
+    "common":{
+        "contactus": "Contactanos",
+        "name":"Nombre",
+        "gender":"Genero",
+        "code":"Codigo"
+    }
+}

@@ -1,0 +1,19 @@
+
+@import "../../../styles-variables.scss";
+
+footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: $accent-primary;
+    color: #fff !important;
+    p{
+        margin-bottom: .25rem;
+    }
+
+    a{
+        color: $primary-blue;
+    }
+  }
+  
+
+  

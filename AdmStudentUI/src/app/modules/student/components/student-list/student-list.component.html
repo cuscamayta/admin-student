@@ -1,1 +1,5 @@
-<p>student-list works!</p>
+<div class="row">
+    <div class="card" *ngFor="let student of students;let i = index">
+        <app-student-card [student]="student" [studentIndex]="i"></app-student-card>
+    </div>
+</div>

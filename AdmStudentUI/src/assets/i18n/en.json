@@ -1,0 +1,26 @@
+{
+    "validation": {
+        "messages": {       
+            "badRequest": "Please review all inputs, some input is invalid or empty",
+            "update": "System updating with your changes.",
+            "save": "Successfully was updated"  
+        }        
+    },
+    "globalError": {
+        "tittle": "APPLICATION ERROR",
+        "error": "ERROR"
+    },
+    "navigation": {
+        "home": "Home",
+        "students": "Student List",
+        "student": "Student",
+        "detail": "Detail",        
+        "preferences": "Preferences"
+    },
+    "common":{
+        "contactus": "Contact Us",
+        "name":"Name",
+        "gender":"Gender",
+        "code":"Code"
+    }
+}

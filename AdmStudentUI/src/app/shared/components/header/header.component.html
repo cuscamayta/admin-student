@@ -1,0 +1,7 @@
+<div class="navbar navbar-inverse bg-primary">
+  <div class="container d-flex justify-content-between">
+    <a href="/home" class="navbar-brand">{{'navigation.home' | translate}}</a>
+    <a href="/" class="navbar-brand">{{'navigation.student' | translate}}</a>    
+    <mat-slide-toggle (change)="changeLanguage($event)" [checked]="true">{{currentLanguage | uppercase}}</mat-slide-toggle>
+  </div>
+</div>
